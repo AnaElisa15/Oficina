@@ -32,4 +32,3 @@ namespace OficinaMecanica.Models
         public virtual Endereco _Endereco { get; set; }
     }
 }
-}
