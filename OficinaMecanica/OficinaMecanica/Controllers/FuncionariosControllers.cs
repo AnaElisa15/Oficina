@@ -12,8 +12,6 @@ namespace OficinaMecanica.Controllers
     public class FuncionariosController : Controller
     {
 
-
-        // GET: Funcionario 
         public ActionResult Index()
         {
             return View();

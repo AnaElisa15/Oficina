@@ -12,8 +12,6 @@ namespace OficinaMecanica.Controllers
     public class ClientesController : Controller
     {
 
-
-        // GET: Clientes
         public ActionResult Index()
         {
             return View();
@@ -60,7 +58,7 @@ namespace OficinaMecanica.Controllers
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);  //retorna erro http diferente, requisição mau feita.
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);  
             }
 
             MeuContexto contexto = new MeuContexto();
