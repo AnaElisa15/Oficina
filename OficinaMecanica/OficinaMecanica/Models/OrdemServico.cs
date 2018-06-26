@@ -26,13 +26,15 @@ namespace OficinaMecanica.Models
 
         [ForeignKey("_Cliente")]
         public int ClienteID { get; set; }
+        public virtual Cliente _Cliente { get; set; }
 
         [ForeignKey("_Funcionario")]
         public int FuncionarioID { get; set; }
+        public virtual Funcionario _Funcionario { get; set; }
+        
 
         [ForeignKey("_Servico")]
         public int ServicoID { get; set; }
-
         public virtual Servico _Servico { get; set; }
     }
 }
