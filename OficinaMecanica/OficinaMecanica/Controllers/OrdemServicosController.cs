@@ -136,7 +136,7 @@ namespace OficinaMecanica.Controllers
             "Nome"
             );
 
-            var model = new EditViewModel(ordemServico, cliente, funcionario, servico);
+            var model = new EditViewModels(ordemServico, cliente, funcionario, servico);
 
             return View(model);
         }

@@ -6,46 +6,55 @@
 }
 
 <head>
-    <link href="~/Content/Estilo.css" rel="stylesheet" type="text/css" />
+
+    <link href="~/Content/Style.css" rel="stylesheet" type="text/css" />
+
 </head>
 <body id="body">
 
-    <h1> </h1>
-    <h1 style="font:Verdana; color:darkblue">
-        <b>Br Oficina</b>
-        <img src="~/fonts/carro.jpg" id="carro" />
-    </h1>
-
+    <h1 style="text-align:center;color:white;font-family:'Goudy Stout'"><b>BrOficina</b></h1>
+    <h4 style="text-align:center;color:white;font-family:Castellar"><b>SUA OFICINA SINONIMO DE ORGANIZAÇÃO</b></h4>
     <br />
     <br />
-    <h3 style="text-align:center; color:blue">SUA OFICINA SINÔNIMO DE ORGANIZAÇÃO</h3>
+    <img src="~/fonts/oficina.jpg" id="oficina" hight="1000px" max-width="1000px"
     <br />
     <br />
 
-    <br />
+    <h3 style="text-align:center; color:blueviolet">NOVIDADES EM DESTAQUE</h3>
+
     <br />
 
+   
+    <br />
+    <br />
     <br />
     <br />
     <div class="row">
         <div class="col-md-4">
-            <h2>Quem Somos?</h2>
+            <h2>Missão</h2>
             <p>
-                Somos uma empresa de software que busca trazer facilidade no dia a dia de nossos clientes. 
+                Disponibilizar um acervo de livros atualizados e que abrangem os mais diversos gêneros, disponibilizando da maneira mais acessível e a baixo custo livros de qualidade para o cliente ter uma experiência única na compra e incentivando a disseminação de cultura.
             </p>
+            <p><a class="btn btn-default" @Html.ActionLink("Saiba mais", "Missao", "Home") &raquo;</a></p>
         </div>
-        <div class="row">
-            <div class="col-md-4">
-                <h2>A Br Oficina</h2>
-                <p>
-                    
-                </p>
-         </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <h2>Funcionalidades</h2>
-                    <p>
-                       
-                    </p>
-                </div>
+        <div class="col-md-4">
+            <h2>Visão</h2>
+            <p>
+                <b>Acreditamos no poder transformador da informação e da cultura.</b>
+                <br />
+                Nosso objetivo é ser o melhor E-Commerce de livros, disseminando informação e cultura, para assim ajudar a construir e viver em um mundo melhor e mais justo.
+            </p>
+            <p><a class="btn btn-default" @Html.ActionLink("Saiba mais", "Visao", "Home") &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Valores</h2>
+            <ul>
+                <li>Diversidade</li>
+                <li>Responsabilidade</li>
+                <li>Inovação</li>
+            </ul>
+
+            <p><a class="btn btn-default" @Html.ActionLink("Saiba mais", "Valores", "Home") &raquo;</a></p>
+        </div>
+    </div>
 </body>

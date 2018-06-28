@@ -195,7 +195,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
-    <Compile Include="Controllers\EmpresasControllers.cs" />
     <Compile Include="Controllers\FuncionariosControllers.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -206,9 +205,7 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cliente.cs" />
-    <Compile Include="Models\Consultas.cs" />
     <Compile Include="Models\EditViewModels.cs" />
-    <Compile Include="Models\Empresa.cs" />
     <Compile Include="Models\Endereco.cs" />
     <Compile Include="Models\Funcionario.cs" />
     <Compile Include="Models\IdentityModels.cs" />

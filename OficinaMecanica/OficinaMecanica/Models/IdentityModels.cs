@@ -27,8 +27,6 @@ namespace OficinaMecanica.Models
         public DbSet<Funcionario> Funcionarios { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Endereco> Enderecos { get; set; }
-        public DbSet<Consultas> Consultas { get; set; }
-        public DbSet<Empresa> Empresas { get; set; }
         public DbSet<OrdemServico> OrdemServicos { get; set; }
         public DbSet<Servico> Servicos { get; set; }
 
