@@ -23,18 +23,14 @@ namespace OficinaMecanica.Models
 
         [Required(ErrorMessage = "Informe o prazo para a data de entrega", AllowEmptyStrings = false)]
         public int DataEntrega { get; set; }
-
-        [ForeignKey("_Cliente")]
-        public int ClienteID { get; set; }
-        public virtual Cliente _Cliente { get; set; }
-
-        [ForeignKey("_Funcionario")]
-        public int FuncionarioID { get; set; }
-        public virtual Funcionario _Funcionario { get; set; }
         
-        [ForeignKey("_Servico")]
+        
+
+        public int ClienteID { get; set; }
+              
+        public int FuncionarioID { get; set; }
+      
         public int ServicoID { get; set; }
-        public virtual Servico _Servico { get; set; }
 
         public DateTime DiaAbertura { get; set; }
     }

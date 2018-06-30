@@ -26,9 +26,8 @@ namespace OficinaMecanica.Models
         [Required(ErrorMessage = "Informe o seu Telefone", AllowEmptyStrings = false)]
         public string Telefone { get; set; }
 
-        [ForeignKey("_Endereco")]
+  
         public int EnderecoID { get; set; }
-
         public virtual Endereco _Endereco { get; set; }
     }
 }
