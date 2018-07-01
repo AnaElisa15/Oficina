@@ -1,0 +1,41 @@
+﻿@model OficinaMecanica.Models.Servico
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2 style="text-align:center; color:darkblue"><b>Excluir Serviço</b></h2>
+<hr />
+
+<h3>Esse serviço será excluido de sua lista.</h3>
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Valor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Valor)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-default" /> |
+            @Html.ActionLink("Voltar para lista", "List")
+        </div>
+    }
+</div>

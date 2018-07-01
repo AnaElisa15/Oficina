@@ -285,11 +285,15 @@
     <Content Include="Views\Funcionario\Details.cshtml" />
     <Content Include="Views\Funcionario\Edit.cshtml" />
     <Content Include="Views\Funcionario\List.cshtml" />
+    <Content Include="Views\Servico\Create.cshtml" />
+    <Content Include="Views\Servico\Delete.cshtml" />
+    <Content Include="Views\Servico\Details.cshtml" />
+    <Content Include="Views\Servico\Edit.cshtml" />
+    <Content Include="Views\Servico\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\OrdemServico\" />
-    <Folder Include="Views\Servico\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
