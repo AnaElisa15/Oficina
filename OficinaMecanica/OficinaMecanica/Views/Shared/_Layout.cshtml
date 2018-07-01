@@ -19,34 +19,67 @@
                 </button>
                 @Html.ActionLink("BrOficina", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+
+                 <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
+
+                  @if (Request.IsAuthenticated)
+                   {
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Clientes <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
  
-                            @if (Request.IsAuthenticated)
-                            {
-                                <li>@Html.ActionLink("Cadastro de clientes", "", "Clientes")</li>
-                                <li>@Html.ActionLink("Editar Cliente", "", "Clientes")</li>
-                                <li>@Html.ActionLink("Excluir Cliente", "", "Cliente")</li>
-                            }
+                                <li>@Html.ActionLink("Novo Cadastro", "Create", "Clientes")</li>
+                                <li>@Html.ActionLink("Excluir", "Delete", "Clientes")</li>
+                                <li>@Html.ActionLink("Editar", "Edit", "Clientes")</li>
+                                <li>@Html.ActionLink("Lista de Clientes", "List", "Clientes")</li>
+
                         </ul>
                     </li>
+                   }
 
-                    <li class="dropdown">
+                   @if (Request.IsAuthenticated)
+                    {
+                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Funcionarios <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-
-                            @if (Request.IsAuthenticated)
-        {
-                    <li>@Html.ActionLink("Cadastro de Funcionarios", "", "Funcionario")</li>
-                    <li>@Html.ActionLink("Editar Funcionario", "", "Funcionario")</li>
-                    <li>@Html.ActionLink("Excluir Funcionario", "", "Funcionario")</li>
-}
+                             
+                                <li>@Html.ActionLink("Novo Funcionario", "Create", "Funcionario")</li>
+                                <li>@Html.ActionLink("Excluir", "Delete", "Funcionario")</li>
+                                <li>@Html.ActionLink("Editar", "Edit", "Funcionario")</li>
+                                <li>@Html.ActionLink("Lista de Funcionários", "List","Funcionario")</li>
+                              
                         </ul>
-                    </li>
+                     </li>
+                    }
+
+
+                   @if (Request.IsAuthenticated)
+                    {
+                     <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Serviços <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                             
+                                <li>@Html.ActionLink("Novo Serviço", "Create", "Servico")</li>
+                               
+                        </ul>
+                     </li>
+                    }
+
+                        
+                   @if (Request.IsAuthenticated)
+                    {
+                     <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Ordem de Serviços <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                             
+                                <li>@Html.ActionLink("Nova Ordem de Serviço", "Create", "OrdemServico")</li>
+                            
+                        </ul>
+                     </li>
+                    }
+
                     <li>@Html.ActionLink("Contato", "Contact", "Home")</li>
 
                 </ul>

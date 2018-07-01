@@ -86,7 +86,7 @@ namespace OficinaMecanica.Controllers
                 System.Data.Entity.EntityState.Modified;
                 contexto.SaveChanges();
                 EditEndereco(cli);
-                return RedirectToAction("/List");
+                return RedirectToAction("List");
             }
 
             return View(cli);
@@ -103,6 +103,7 @@ namespace OficinaMecanica.Controllers
             end.CEP = cli._Endereco.CEP;
             contexto.Entry(end).State = System.Data.Entity.EntityState.Modified;
             contexto.SaveChanges();
+
         }
 
 

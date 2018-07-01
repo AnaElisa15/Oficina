@@ -21,7 +21,7 @@ namespace OficinaMecanica.Models
         public string Bairro { get; set; }
 
         [Required(ErrorMessage = "Informe o estado", AllowEmptyStrings = false)]
-        public int Estado { get; set; }
+        public string Estado { get; set; }
 
         [Required(ErrorMessage = "Informe o seu CEP", AllowEmptyStrings = false)]
         public int CEP { get; set; }
