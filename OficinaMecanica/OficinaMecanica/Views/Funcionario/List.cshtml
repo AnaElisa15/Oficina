@@ -1,0 +1,84 @@
+﻿@model IEnumerable<OficinaMecanica.Models.Funcionario>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2 style="text-align:center;color:darkblue">Lista de Funcionarios</h2>
+
+<p>
+    @Html.ActionLink("Novo Funcionario", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CPF)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Cargo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model._Endereco.CEP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model._Endereco.Rua)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model._Endereco.Numero)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model._Endereco.Bairro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model._Endereco.Estado)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CPF)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cargo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item._Endereco.CEP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item._Endereco.Rua)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item._Endereco.Numero)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item._Endereco.Bairro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item._Endereco.Estado)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = item.FuncionarioID }) |
+            @Html.ActionLink("Detalhes", "Details", new { id = item.FuncionarioID }) |
+            @Html.ActionLink("Deletar", "Delete", new { id = item.FuncionarioID })
+        </td>
+    </tr>
+    }
+
+</table>
+

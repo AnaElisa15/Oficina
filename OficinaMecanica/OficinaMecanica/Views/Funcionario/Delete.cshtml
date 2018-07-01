@@ -1,0 +1,96 @@
+﻿@model OficinaMecanica.Models.Funcionario
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2 style="text-align:center; color:darkblue"><b>Excluir Funcionario</b></h2>
+<hr />
+
+<h3>Esse funcionario será excluido de sua lista.</h3>
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CPF)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CPF)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cargo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cargo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model._Endereco.CEP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model._Endereco.CEP)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model._Endereco.Rua)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model._Endereco.Rua)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model._Endereco.Numero)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model._Endereco.Numero)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model._Endereco.Bairro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model._Endereco.Bairro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model._Endereco.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model._Endereco.Estado)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-default" /> |
+            @Html.ActionLink("Voltar para lista", "List")
+        </div>
+    }
+</div>
