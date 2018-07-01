@@ -24,8 +24,6 @@ namespace OficinaMecanica.Models
         [Required(ErrorMessage = "Informe o prazo para a data de entrega", AllowEmptyStrings = false)]
         public int DataEntrega { get; set; }
         
-        
-
         public int ClienteID { get; set; }
               
         public int FuncionarioID { get; set; }

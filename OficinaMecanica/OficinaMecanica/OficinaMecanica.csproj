@@ -290,10 +290,10 @@
     <Content Include="Views\Servico\Details.cshtml" />
     <Content Include="Views\Servico\Edit.cshtml" />
     <Content Include="Views\Servico\List.cshtml" />
+    <Content Include="Views\OrdemServico\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\OrdemServico\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

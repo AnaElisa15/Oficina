@@ -86,7 +86,7 @@ namespace OficinaMecanica.Controllers
                 System.Data.Entity.EntityState.Modified;
                 contexto.SaveChanges();
                 EditEndereco(func);
-                return RedirectToAction("/List");
+                return RedirectToAction("List");
             }
 
             return View(func);

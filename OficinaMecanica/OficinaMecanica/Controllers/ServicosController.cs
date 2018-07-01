@@ -33,7 +33,7 @@ namespace OficinaMecanica.Controllers
                 MeuContexto contexto = new MeuContexto();
                 contexto.Servicos.Add(servico);
                 contexto.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("List");
             }
             return View(servico);
         }
@@ -83,7 +83,7 @@ namespace OficinaMecanica.Controllers
                 MeuContexto contexto = new MeuContexto();
                 contexto.Entry(ser).State = System.Data.Entity.EntityState.Modified;
                 contexto.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("List");
             }
             return View(ser);
         }
@@ -116,7 +116,7 @@ namespace OficinaMecanica.Controllers
 
             contexto.Servicos.Remove(ser);
             contexto.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("List");
         }
     }
 }

@@ -66,7 +66,7 @@ namespace OficinaMecanica.Controllers
 
                 this.Contexto.OrdemServicos.Add(ordemServico);
                 this.Contexto.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("List");
             }
 
             ViewBag.ClienteID = new SelectList(
@@ -152,7 +152,7 @@ namespace OficinaMecanica.Controllers
 
                 this.Contexto.Entry(ordemServico).State = EntityState.Modified;
                 this.Contexto.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("List");
             }
 
             ViewBag.ClienteID = new SelectList(
@@ -207,7 +207,7 @@ namespace OficinaMecanica.Controllers
 
             this.Contexto.OrdemServicos.Remove(os);
             this.Contexto.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("List");
         }
     }
 }
