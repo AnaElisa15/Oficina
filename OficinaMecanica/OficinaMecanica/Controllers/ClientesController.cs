@@ -85,7 +85,6 @@ namespace OficinaMecanica.Controllers
                 contexto.Entry(cli).State =
                 System.Data.Entity.EntityState.Modified;
                 contexto.SaveChanges();
-                EditEndereco(cli);
                 return RedirectToAction("List");
             }
 
