@@ -3,8 +3,7 @@ using System.Linq;
 using System.Web.Mvc;
 using System.Data.Entity;
 using System.Net;
-
-
+using System.Collections.Generic;
 
 namespace OficinaMecanica.Controllers
 {
@@ -23,11 +22,9 @@ namespace OficinaMecanica.Controllers
 
 
             var ordemServicos = this.Contexto.OrdemServicos.ToList();
-            var clientes = this.Contexto.Clientes.ToList();
-            var funcionarios = this.Contexto.Funcionarios.ToList();
-            var servicos = this.Contexto.Servicos.ToList();
-
-            var model = new OrdemServicoViewModels (ordemServicos, clientes, funcionarios, servicos);
+            var situacoes = this.Contexto.Situacaos.ToList();
+            
+            var model = new OrdemServicoViewModels (ordemServicos, situacoes);
 
             return View(model);
         }
@@ -38,28 +35,18 @@ namespace OficinaMecanica.Controllers
 
 
 
-            ViewBag.EditoraID = new SelectList(
-            this.Contexto.Clientes.ToList(),
-            "ClienteID",
+            ViewBag.SituacaoID = new SelectList(
+            this.Contexto.Situacaos.ToList(),
+            "SituacaoID",
             "Nome"
              );
 
-            ViewBag.CategoriaID = new SelectList(
-            this.Contexto.Funcionarios.ToList(),
-            "FuncionarioID",
-            "Nome"
-             );
-
-            ViewBag.AssuntoID = new SelectList(
-            this.Contexto.Servicos.ToList(),
-            "ServicoID",
-            "Nome"
-             );
+            
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(OrdemServico ordemServico, string clienteId, string funcionarioId, string servicoId)
+        public ActionResult Create(OrdemServico ordemServico, string situacaoId)
         {
             if (ModelState.IsValid)
             {
@@ -69,26 +56,13 @@ namespace OficinaMecanica.Controllers
                 return RedirectToAction("List");
             }
 
-            ViewBag.ClienteID = new SelectList(
-            this.Contexto.Clientes.ToList(),
-            "ClienteID",
+            ViewBag.SituacaoID = new SelectList(
+            this.Contexto.Situacaos.ToList(),
+            "SituacaoID",
             "Nome",
-            clienteId
+            situacaoId
              );
 
-            ViewBag.CategoriaID = new SelectList(
-            this.Contexto.Funcionarios.ToList(),
-            "FuncionarioID",
-            "Nome",
-            funcionarioId
-             );
-
-            ViewBag.AssuntoID = new SelectList(
-            this.Contexto.Servicos.ToList(),
-            "ServicoID",
-            "Nome",
-            servicoId
-             );
 
             return View(ordemServico);
         }
@@ -114,67 +88,41 @@ namespace OficinaMecanica.Controllers
         public ActionResult Edit(int? id)
         {
             var ordemServico = this.Contexto.OrdemServicos.FirstOrDefault(_ => _.OrdemServicoID == id);
-            var cliente = this.Contexto.Clientes.ToList();
-            var funcionario = this.Contexto.Funcionarios.ToList();
-            var servico = this.Contexto.Servicos.ToList();
+            var situacao = this.Contexto.Situacaos.ToList();
+            
 
-            ViewBag.ClienteID = new SelectList(
-                this.Contexto.Clientes.ToList(),
-                "ClienteID",
+            ViewBag.SituacaoID = new SelectList(
+                this.Contexto.Situacaos.ToList(),
+                "SituacaoID",
                 "Nome"
                 );
 
-            ViewBag.FuncionarioID = new SelectList(
-            this.Contexto.Funcionarios.ToList(),
-            "FuncionarioID",
-            "Nome"
-            );
+            
 
-            ViewBag.ServicoID = new SelectList(
-            this.Contexto.Servicos.ToList(),
-            "ServicoID",
-            "Nome"
-            );
-
-            var model = new EditViewModels(ordemServico, cliente, funcionario, servico);
+            var model = new EditViewModels(ordemServico, situacao);
 
             return View(model);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(OrdemServico ordemServico, string clienteId, string funcionarioId, string servicoId)
+        public ActionResult Edit(OrdemServico ordemServico, string situacaoId)
         {
             if (ModelState.IsValid)
             {
-                ordemServico.ClienteID = int.Parse(funcionarioId);
-                ordemServico.FuncionarioID = int.Parse(servicoId);
-                ordemServico.ServicoID = int.Parse(clienteId);
+                ordemServico.SituacaoID = int.Parse(situacaoId);
+               
 
                 this.Contexto.Entry(ordemServico).State = EntityState.Modified;
                 this.Contexto.SaveChanges();
                 return RedirectToAction("List");
             }
 
-            ViewBag.ClienteID = new SelectList(
-               this.Contexto.Clientes.ToList(),
-               "ClienteID",
+            ViewBag.SituacaoID = new SelectList(
+               this.Contexto.Situacaos.ToList(),
+               "SituacaoID",
                "Nome",
-               clienteId
+              situacaoId
                );
-
-            ViewBag.FuncionarioID = new SelectList(
-            this.Contexto.Funcionarios.ToList(),
-            "FuncionarioID",
-            "Nome",
-            funcionarioId
-            );
-
-            ViewBag.ServicoID = new SelectList(
-            this.Contexto.Servicos.ToList(),
-            "ServicoID",
-            "Nome",
-            servicoId
-            );
 
             return View(ordemServico);
         }
@@ -209,5 +157,32 @@ namespace OficinaMecanica.Controllers
             this.Contexto.SaveChanges();
             return RedirectToAction("List");
         }
+
+        public ActionResult BuscaPorPlaca()
+        {
+            Session["lista"] = null;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult BuscaPorPlaca(string nome)
+        {
+            MeuContexto contexto = new MeuContexto();
+            var serie = contexto.OrdemServicos.Where(c => c.Placa.ToLower().Equals(nome.ToLower()));
+            List<OrdemServico> lista = serie.ToList();
+            ViewBag.Lista = lista;
+            if (lista.Count > 0)
+            {
+                Session["lista"] = serie;
+            }
+            else
+            {
+                Session["lista"] = null;
+                ViewBag.Message = "Nada encontrado no sistema com a placa : " + nome;
+            }
+
+            return View();
+        }
+
     }
 }

@@ -43,8 +43,8 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Funcionarios <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                              
-                                <li>@Html.ActionLink("Novo Funcionario", "Create", "Funcionario")</li>
-                                <li>@Html.ActionLink("Lista de Funcionários", "List","Funcionario")</li>
+                                <li>@Html.ActionLink("Novo Funcionario", "Create", "Funcionarios")</li>
+                                <li>@Html.ActionLink("Lista de Funcionários", "List","Funcionarios")</li>
                               
                         </ul>
                      </li>
@@ -57,8 +57,8 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Serviços <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
 
-                            <li>@Html.ActionLink("Novo Serviço", "Create", "Servico")</li>
-                            <li>@Html.ActionLink("Lista de Seviços", "List", "Servico")</li>
+                            <li>@Html.ActionLink("Novo Serviço", "Create", "Servicos")</li>
+                            <li>@Html.ActionLink("Lista de Seviços", "List", "Servicos")</li>
 
                         </ul>
                      </li>
@@ -71,8 +71,20 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Ordem de Serviços <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
                              
-                                <li>@Html.ActionLink("Nova Ordem de Serviço", "Create", "OrdemServico")</li>
-                            
+                                <li>@Html.ActionLink("Nova Ordem de Serviço", "Create", "OrdemServicos")</li>
+                                <li>@Html.ActionLink("Lista de OS", "List", "OrdemServicos")</li>
+                        </ul>
+                     </li>
+                    }
+
+                        @if (Request.IsAuthenticated)
+                    {
+                     <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Situação <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                             
+                                <li>@Html.ActionLink("Nova Situação", "Create", "Situacao")</li>
+                                <li>@Html.ActionLink("Lista de situações", "List", "Situacao")</li>
                         </ul>
                      </li>
                     }

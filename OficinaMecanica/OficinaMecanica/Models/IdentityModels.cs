@@ -29,6 +29,7 @@ namespace OficinaMecanica.Models
         public DbSet<Endereco> Enderecos { get; set; }
         public DbSet<OrdemServico> OrdemServicos { get; set; }
         public DbSet<Servico> Servicos { get; set; }
+        public DbSet<Situacao> Situacaos { get; set; }
 
 
         public MeuContexto() : base("DefaultConnection", throwIfV1Schema: false)

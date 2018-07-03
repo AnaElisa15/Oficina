@@ -1,0 +1,52 @@
+﻿@model OficinaMecanica.Models.OrdemServico
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 style="text-align:center;color:darkblue">Detalhes da OS</h2>
+
+<div>
+    <h4>OS</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Placa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Placa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Modelo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Modelo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ano)
+        </dt>
+       
+        <dd>
+            @Html.DisplayFor(model => model.Ano)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SituacaoID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SituacaoID)
+        </dd>
+
+       
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.OrdemServicoID }) |
+    @Html.ActionLink("Back to List", "List")
+</p>

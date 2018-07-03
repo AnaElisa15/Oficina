@@ -1,0 +1,27 @@
+﻿@model OficinaMecanica.Models.Situacao
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 style="text-align:center;color:darkblue">Detalhe da situação</h2>
+
+<div>
+    <h4>Situação</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+       
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.SituacaoID }) |
+    @Html.ActionLink("Voltar para lista", "List")
+</p>

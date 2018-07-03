@@ -1,0 +1,55 @@
+﻿@model IEnumerable<OficinaMecanica.Models.OrdemServico>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2 style="text-align:center;color:darkblue">Lista de OS</h2>
+
+<p>
+    @Html.ActionLink("Nova OS", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Placa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Modelo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ano)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SituacaoID)
+        </th>
+       
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Placa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Modelo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ano)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SituacaoID)
+        </td>
+       
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = item.OrdemServicoID}) |
+            @Html.ActionLink("Detalhes", "Details", new { id = item.OrdemServicoID }) |
+            @Html.ActionLink("Deletar", "Delete", new { id = item.OrdemServicoID })
+        </td>
+    </tr>
+    }
+
+</table>
+

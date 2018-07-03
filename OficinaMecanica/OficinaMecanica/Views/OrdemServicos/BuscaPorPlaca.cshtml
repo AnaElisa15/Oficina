@@ -1,0 +1,98 @@
+﻿@using OficinaMecanica.Models
+
+
+@{
+    ViewBag.Title = "Busca";
+}
+
+<head>
+
+    <link href="~/Content/Estilo.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<h2 style="text-align:center;color:purple"><b>Buscar OS</b></h2>
+
+<body id="body">
+    @using (Html.BeginForm("BuscaPorPlaca", "OrdemServicos", FormMethod.Post))
+    {
+
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Consulta pela placa do carro</h4>
+            <hr />
+            <div class="form-group">
+                @Html.Label("Numero da placa:", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="text" name="nome" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Search" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+
+
+        if (Session["lista"] != null)
+        {
+            <table class="table">
+                <tr>
+                    <th>
+                        <h5 style="text-align:center">Placa</h5>
+                    </th>
+                    <th>
+                        <h5>Modelo</h5>
+                    </th>
+                    <th>
+                        <h5>Ano</h5>
+                    </th>
+                    <th>
+                        <h5>Situação da OS</h5>
+                    </th>
+                   
+                    
+                </tr>
+
+                @foreach (OrdemServico item in ViewBag.Lista)
+                {
+                    <tr>
+                     
+                        <td>
+                            <h5> @item.Placa</h5>
+                        </td>
+                        <td>
+                            <h5>  @item.Modelo</h5>
+                        </td>
+                        <td>
+                            <h5>  @item.Ano</h5>
+                        </td>
+                        <td style="color:red">
+                            <h5>R$ @item.SituacaoID</h5>
+                        </td>
+                       
+                        <td>
+                            @Html.ActionLink("Editar", "Edit", new { id = item.OrdemSevicoID })
+                            @Html.ActionLink("Detalhes", "Details", new { id = item.OrdemServicoID })
+                            @Html.ActionLink("Deletar", "Delete", new { id = item.OrdemSevicoID })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+        }
+        else
+        {
+            <h4 style="text-align:center">@ViewBag.Message</h4>
+        }
+
+
+        <p>
+            @Html.ActionLink("Voltar para lista", "Index")
+        </p>
+    }
+</body>

@@ -8,21 +8,17 @@ namespace OficinaMecanica.Models
 {
     public class EditViewModels
     {
-        public EditViewModels (OrdemServico ordemServico, List<Cliente> clientes, List<Funcionario> funcionarios, List<Servico> servicos)
+        public EditViewModels (OrdemServico ordemServico, List<Situacao> situacao)
         {
             this.OrdemServico = ordemServico;
-            this.Clientes = clientes;
-            this.Funcionarios = funcionarios;
-            this.Servicos = servicos;
+            this.Situacaos = Situacaos;
+            
         }
 
         public OrdemServico OrdemServico { get; set; }
 
-        [Required(ErrorMessage = "Selecione um cliente")]
-        public List<Cliente> Clientes { get; set; }
-        [Required(ErrorMessage = "Selecione um funcionário")]
-        public List<Funcionario> Funcionarios { get; set; }
-        [Required(ErrorMessage = "Selecione um serviço")]
-        public List<Servico> Servicos { get; set; }
+        [Required(ErrorMessage = "Selecione a situação da OS")]
+        public List<Situacao> Situacaos { get; set; }
+       
     }
 }

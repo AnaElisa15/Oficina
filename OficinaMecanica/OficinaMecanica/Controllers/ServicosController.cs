@@ -10,20 +10,16 @@ namespace OficinaMecanica.Controllers
 {
     public class ServicosController : Controller
     {
- 
         public ActionResult Index()
         {
-
-            MeuContexto contexto = new MeuContexto();
-
-            List<Servico> servico = contexto.Servicos.ToList();
-
-            return View(servico);
+            return View();
         }
+
         public ActionResult Create()
         {
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Servico servico)
@@ -36,6 +32,16 @@ namespace OficinaMecanica.Controllers
                 return RedirectToAction("List");
             }
             return View(servico);
+        }
+
+        public ActionResult List()
+        {
+
+            MeuContexto contexto = new MeuContexto();
+
+            List<Servico> lista = contexto.Servicos.ToList();
+
+            return View(lista);
         }
 
         public ActionResult Details(int? id)

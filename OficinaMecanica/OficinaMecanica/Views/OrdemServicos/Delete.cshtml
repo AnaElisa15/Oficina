@@ -1,0 +1,58 @@
+﻿@model OficinaMecanica.Models.OrdemServico
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2 style="text-align:center; color:darkblue"><b>Excluir Ordem de Serviço</b></h2>
+<hr />
+
+<h3>Essa OS cserá excluido de sua lista.</h3>
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Placa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Placa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Modelo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Modelo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ano)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ano)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SituacaoID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SituacaoID)
+        </dd>
+
+       
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-default" /> |
+            @Html.ActionLink("Voltar para lista", "List")
+        </div>
+    }
+</div>
