@@ -11,7 +11,7 @@
 
 </head>
 
-<h2 style="text-align:center;color:purple"><b>Buscar OS</b></h2>
+<h2 style="text-align:center;color:darkblue"><b>Buscar OS</b></h2>
 
 <body id="body">
     @using (Html.BeginForm("BuscaPorPlaca", "OrdemServicos", FormMethod.Post))
@@ -71,14 +71,10 @@
                             <h5>  @item.Ano</h5>
                         </td>
                         <td style="color:red">
-                            <h5>R$ @item.SituacaoID</h5>
+                            <h5> @item._Situacao.Nome</h5>
                         </td>
                        
-                        <td>
-                            @Html.ActionLink("Editar", "Edit", new { id = item.OrdemSevicoID })
-                            @Html.ActionLink("Detalhes", "Details", new { id = item.OrdemServicoID })
-                            @Html.ActionLink("Deletar", "Delete", new { id = item.OrdemSevicoID })
-                        </td>
+                        
                     </tr>
                 }
 
